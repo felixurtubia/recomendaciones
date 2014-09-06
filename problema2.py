@@ -28,27 +28,24 @@ def compararusuario(idcentral):
 
 def recomendacion_jaccard():
 	maximo,aux = 0,[]
-	user = int(raw_input('Usuario a recomendar(indice): '))-1
+	user = int(raw_input('Usuario a recomendar(indice): '))
 	for i in usuarios:
 		if i == user:
 			continue
 		new_j,p1,p2 = jaccard(user,i)
 		if maximo < new_j:
 			parecido = i
+			peli_parecido = p2
 			maximo = new_j
-	user = matriz[user,:]
-	peli_parecido = matriz[parecido,:]
-
+	peli_parecido_rating = matriz[parecido,:]
+	delta_peli = peli_parecido - p1
 	maximo = 0
-	for i in p2:
-		rating = peli_parecido[p2]
-
-
-
-
-	pelicula = max(pelicula)
-	pelicula = matriz.index(pelicula)
-	return id_movies[str(pelicula)]
+	for i in delta_peli:
+		rating = peli_parecido_rating[i-1]
+		if maximo <= rating:
+			maximo = rating
+			ind = i
+	return id_movies[str(i)]
 
 def jaccard(u1,u2):
 	peliculas1,peliculas2 = set(),set()
