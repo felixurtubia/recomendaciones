@@ -12,7 +12,7 @@ arch.close()
 arch = open('u.dat')
 for dato in arch:
 	dato = dato.strip().split()
-	usuarios.add(int(dato[0]))
+	usuarios.add(dato[0])
 arch.close()
 
 matriz = zeros((len(usuarios),len(id_movies)))
@@ -23,6 +23,7 @@ for dato in arch:
 	matriz[int(dato[0])-1,int(dato[1])-1] = int(dato[2])
 arch.close()
 
+<<<<<<< HEAD
 def recomendacion_jaccard():
 	maximo,aux = 0,[]
 	user = int(raw_input('Usuario a recomendar(indice): '))
@@ -57,3 +58,7 @@ def jaccard(u1,u2):
 	Jaccard = float(len(peliculas1 & peliculas2))
 	Jaccard/= len(peliculas1|peliculas2)
 	return Jaccard,peliculas1,peliculas2
+=======
+def compararusuario(idcentral):
+	id_vistas= matriz[idcentral,]
+>>>>>>> origin/master
