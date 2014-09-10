@@ -23,9 +23,6 @@ for dato in arch:
 	matriz[int(dato[0])-1,int(dato[1])-1] = int(dato[2])
 arch.close()
 
-def compararusuario(idcentral):
-	id_vistas= matriz[idcentral,]
-
 def recomendacion_jaccard():
 	maximo,aux = 0,[]
 	user = int(raw_input('Usuario a recomendar(indice): '))
